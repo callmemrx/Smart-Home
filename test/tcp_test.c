@@ -82,5 +82,6 @@ int main()
 		// 等待一下让状态更新
 		sleep(1);
 	}
+	
 	return 0;
 } 

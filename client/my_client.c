@@ -20,6 +20,7 @@
 #include <sys/wait.h>
 #include <sys/socket.h>
 
+
 #define FONTDATAMAX 4096
 
 static const unsigned char fontdata_8x16[FONTDATAMAX] = {

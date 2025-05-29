@@ -20,7 +20,6 @@
 #include <sys/wait.h>
 #include <sys/socket.h>
 
-
 #define FONTDATAMAX 4096
 
 static const unsigned char fontdata_8x16[FONTDATAMAX] = {
@@ -4643,6 +4642,17 @@ unsigned int line_width;
 unsigned int pixel_width;
 pid_t ffmpeg_pid = -1;
 
+#define PORT 8888
+#define BUFFER_SIZE 1024
+#define SERVER_IP "192.168.5.11"
+#define dht11_dev "/dev/mydht11"
+#define my_fb 	  "/dev/fb2"
+
+typedef struct {
+    float temperature;
+    float humidity;
+} SensorData;
+
 // SIGCHLD信号处理函数（回收僵尸进程）
 void sigchld_handler(int sig) {
     int status;
@@ -4750,17 +4760,6 @@ void oled_put_string(int x, int y, char *str)
 		j++;
 	}
 }
-
-#define PORT 8888
-#define BUFFER_SIZE 1024
-#define SERVER_IP "192.168.5.11"
-#define dht11_dev "/dev/mydht11"
-#define my_fb 	  "/dev/fb2"
-
-typedef struct {
-    float temperature;
-    float humidity;
-} SensorData;
 
 //传感器数据合并为浮点数
 float combine_bytes_to_float(unsigned char integer_part, unsigned char decimal_part) 

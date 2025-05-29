@@ -19,7 +19,7 @@ void *pthread_tcp_rcv (void *arg)
 	char buffer[BUFFER_SIZE];
 
 	printf("%s %s line %d\n", __FILE__, __FUNCTION__, __LINE__);
-	while(1){
+	while(1) {
 		memset(buffer, 0, BUFFER_SIZE);
 		int len = recv(client_fd, buffer, BUFFER_SIZE - 1, 0);
 		printf("recv data len = %d\n", len);
@@ -30,17 +30,16 @@ void *pthread_tcp_rcv (void *arg)
 			printf ("recv : %0.2f %0.2f\n", data->temperature, data->humidity);
 			pthread_mutex_lock (&mutex_datalist);
 			//接收到的额数据加入到链表中
-			if ((InsertDataNode (&dataTail, data)) == -1)
-			{
+			if ((InsertDataNode (&dataTail, data)) == -1) {
 				pthread_mutex_unlock (&mutex_datalist);
 				printf ("NONMEM\n");
 			}
 			pthread_mutex_unlock (&mutex_datalist);
 			pthread_cond_signal (&cond_refresh);
-		}else if(len == 0){
+		}else if(len == 0) {
 			printf("Connection closed bt server\n");
 			break;
-		}else{
+		}else {
 			perror("recv error");
 			break;
 		}

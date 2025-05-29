@@ -26,4 +26,3 @@ int semid; //信号量
 
 int server_fd, client_fd;
 struct sockaddr_in server_addr, client_addr;
-

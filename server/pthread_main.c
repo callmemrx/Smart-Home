@@ -16,22 +16,18 @@ void *pthread_main (void *arg)
 	ssize_t msgsize;
 	struct msg msgbuf;
 
-	if ((key = ftok ("/home/book/app", 'g')) < 0)
-	{
+	if ((key = ftok ("/home/book/app", 'g')) < 0) {
 		perror ("ftok msgqueue");
 		exit (-1);
 	}
-	if ((msgid = msgget (key, IPC_CREAT | 0666)) < 0)
-	{
+	if ((msgid = msgget (key, IPC_CREAT | 0666)) < 0){
 		if(errno == EEXIST)
 		{
 			if ((msgid = msgget(key, 0666)) < 0) {
                 perror("msgget msgid");
                 exit(EXIT_FAILURE);
 				}
-		} 
-		else
-		{
+		}else{
 			perror ("msgget msgid");
 			exit (-1);
 		}
@@ -41,8 +37,7 @@ void *pthread_main (void *arg)
 	cmd_cache_tail = cmd_cache_head;
 	
 	printf ("pthread_main is ok\n");
-	while (1)
-	{
+	while (1){
 		bzero (&msgbuf, sizeof (msgbuf));
 		msgsize = msgrcv (msgid, &msgbuf, sizeof (msgbuf) - sizeof (long), MAIN, 0);
 		if (msgsize < 0) {
@@ -55,7 +50,7 @@ void *pthread_main (void *arg)
 		pthread_mutex_lock (&mutex_cmdlist);	
 		if (InsertCacheNode(&cmd_cache_tail, msgbuf.text) == -1) {
 			printf("插入节点失败，内存不足\n");
-		}else{
+		}else {
 			printf("Inserting command: %s\n", msgbuf.text);
 		}
 		pthread_mutex_unlock (&mutex_cmdlist);

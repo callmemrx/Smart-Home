@@ -34,7 +34,6 @@ int sem_p(int semid, int num)
 		perror("semop");
 		exit(1);
 	}
-
 	return 0;
 }
 

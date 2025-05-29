@@ -12,5 +12,4 @@ extern datalist CreateEmptyDataList ();
 extern int EmptyDataList (datalist h);
 extern datalist GetDataNode (datalist h, datalist *t);
 extern int InsertDataNode (datalist *t, SensorData* x);
-
 #endif

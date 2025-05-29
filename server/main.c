@@ -129,5 +129,6 @@ int main(int argc, char **argv)
 		pthread_join (id_refresh, NULL);
 		printf ("g4\n");
     }
+	
 	return 0;
 }

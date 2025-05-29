@@ -19,7 +19,6 @@ unsigned char dev_uart_mask;
 cmd_cache_list cmd_cache_head, cmd_cache_tail;
 datalist dataHead, dataTail;
 
-
 int msgid; //消息队列
 int shmid; //共享内存
 int semid; //信号量

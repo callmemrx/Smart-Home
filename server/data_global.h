@@ -41,5 +41,4 @@ typedef struct {
     float humidity;
 } SensorData;
 
-
 #endif

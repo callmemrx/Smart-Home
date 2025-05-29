@@ -9,7 +9,6 @@
 
 extern pthread_cond_t cond_tcp_send;
 extern pthread_mutex_t mutex_cmdlist;
-
 extern cmd_cache_list cmd_cache_head, cmd_cache_tail;
 extern int client_fd;
 

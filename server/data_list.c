@@ -58,4 +58,3 @@ int InsertDataNode(datalist *t, SensorData* x)
 	return 0;
 
 }
-

@@ -7,7 +7,6 @@ extern pthread_mutex_t mutex_cmdlist;
 
 extern int msgid;
 extern struct env_info_array all_info_RT; 
-
 extern cmd_cache_list cmd_cache_head, cmd_cache_tail;
 
 void *pthread_main (void *arg)

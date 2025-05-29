@@ -10,7 +10,6 @@ extern pthread_mutex_t mutex_global;
 extern pthread_mutex_t mutex_datalist;
 
 extern pthread_cond_t cond_refresh;
-
 extern int shmid; 
 extern int semid;
 extern datalist dataHead, dataTail;

@@ -8,7 +8,6 @@
 
 extern int client_fd;
 extern datalist dataHead, dataTail;
-
 extern pthread_mutex_t mutex_datalist;
 extern pthread_cond_t cond_refresh;
 

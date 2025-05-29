@@ -68,5 +68,6 @@ int main()
 		sem_v (semid, 0);
 		sleep(3);
 	}
+	
 	return 0;
 } 

@@ -1,0 +1,6 @@
+
+   dht11 {  
+        compatible = "my,dht11";
+        gpios = <&gpio4 19 GPIO_ACTIVE_HIGH>;
+    };
+

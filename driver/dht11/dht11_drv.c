@@ -94,7 +94,6 @@ static int dht11_wait_for_ready(void)
 		printk("%s %s line %d\n", __FILE__, __FUNCTION__, __LINE__);
 		return -1;
 	}
-	
 	return 0;	
 }
 

@@ -336,8 +336,7 @@ static int spidev_probe(struct spi_device *spi)
 	myfb_info->flags |= FBINFO_MODULE; 		/* 禁止显示LOGO，否则段错误 */
 
 	/* fb的虚拟地址 */
-	myfb_info->screen_base = dma_alloc_wc(NULL, myfb_info->fix.smem_len, &phy_addr,
-					 GFP_KERNEL);			/* 用DMA而不是kmalloc是为了让物理地址连续 */
+	myfb_info->screen_base = dma_alloc_wc(NULL, myfb_info->fix.smem_len, &phy_addr, GFP_KERNEL);			
 	myfb_info->fix.smem_start = phy_addr;   /* fb的物理地址 */
 	
 	myfb_info->fix.type = FB_TYPE_PACKED_PIXELS;

@@ -169,6 +169,7 @@ static ssize_t dht11_drv_read (struct file *file, char __user *buf, size_t size,
 	
 	local_irq_save(flags);	  // 关中断
 
+	//调试用
 	pre = ktime_get_boot_ns();
 	for (i = 0; i < 10000; i++){
 		udelay(1); //gpiod_get_value(dht11_data_pin);  /* 读1次gpio耗时1us */
@@ -210,6 +211,7 @@ static ssize_t dht11_drv_read (struct file *file, char __user *buf, size_t size,
 		//return -1;
 	}
 
+	//调试用
 	printk("get high us: \n");
 	for (i  =0; i < 40; i++){
 		printk("%d: %dns, read %d gpio ", i, us_array[i], time_array[i]);

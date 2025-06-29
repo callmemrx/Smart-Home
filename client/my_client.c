@@ -4798,7 +4798,7 @@ int init_fb(void)
 }
 
 int main() {
-	int mysock, client_fd;
+	int mysock;
 	struct sockaddr_in serv_addr, client_addr;
 	char buffer[BUFFER_SIZE];
 	int n = 5;
